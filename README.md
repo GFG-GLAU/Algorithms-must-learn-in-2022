@@ -1,7 +1,7 @@
 # Algorithms-must-learn-in-2022
 Some algorithms that you should learn for better concept understanding and coding.
 
-<h1 align="center">Contributing to Events | Projects | Programs</h1>
+<h1>Contributing to Repo</h1>
 
 ## 🛠️ Installation Steps
 
