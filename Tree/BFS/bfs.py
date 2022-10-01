@@ -21,11 +21,12 @@ def level_order_traversal(root: TreeNode):
     return res
 
 
-a = TreeNode(10)
-a.left = TreeNode(20)
-a.right = TreeNode(30)
-a.left.left = TreeNode(40)
-a.left.right = TreeNode(50)
-a.right.left = TreeNode(60)
-a.right.right = TreeNode(70)
-print(level_order_traversal(a))
+root = TreeNode(10)
+root.left = TreeNode(20)
+root.right = TreeNode(30)
+root.left.left = TreeNode(40)
+root.left.right = TreeNode(50)
+root.right.left = TreeNode(60)
+root.right.right = TreeNode(70)
+
+print(level_order_traversal(root))
