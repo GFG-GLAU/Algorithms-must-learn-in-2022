@@ -60,4 +60,3 @@ public static void main(String[] args)
         System.out.print("BSTs are not identical");
 }
 }
-Fo
