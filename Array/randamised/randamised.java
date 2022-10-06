@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 import java.math.*;
  
-class GFG {
+class Main {
     static int N = 2;
 
     static boolean freivald(int a[][], int b[][],
