@@ -1,16 +1,14 @@
-// Operations on Fibonacci Heap in Java
 
-// Node creation
-class node {
-  node parent;
-  node left;
-  node right;
-  node child;
+class Node {
+  Node parent;
+  Node left;
+  Node right;
+  Node child;
   int degree;
   boolean mark;
   int key;
 
-  public node() {
+  public Node() {
     this.degree = 0;
     this.mark = false;
     this.parent = null;
@@ -20,12 +18,12 @@ class node {
     this.key = Integer.MAX_VALUE;
   }
 
-  node(int x) {
+  Node(int x) {
     this();
     this.key = x;
   }
 
-  void set_parent(node x) {
+  void set_parent(Node x) {
     this.parent = x;
   }
 
@@ -33,7 +31,7 @@ class node {
     return this.parent;
   }
 
-  void set_left(node x) {
+  void set_left(Node x) {
     this.left = x;
   }
 
@@ -41,19 +39,19 @@ class node {
     return this.left;
   }
 
-  void set_right(node x) {
+  void set_right(Node x) {
     this.right = x;
   }
 
-  node get_right() {
+  Node get_right() {
     return this.right;
   }
 
-  void set_child(node x) {
+  void set_child(Node x) {
     this.child = x;
   }
 
-  node get_child() {
+  Node get_child() {
     return this.child;
   }
 
@@ -83,10 +81,10 @@ class node {
 }
 
 public class fibHeap {
-  node min;
+  Node min;
   int n;
   boolean trace;
-  node found;
+  Node found;
 
   public boolean get_trace() {
     return trace;
@@ -106,7 +104,7 @@ public class fibHeap {
     trace = false;
   }
 
-  private void insert(node x) {
+  private void insert(Node x) {
     if (min == null) {
       min = x;
       x.set_left(min);
@@ -123,7 +121,7 @@ public class fibHeap {
   }
 
   public void insert(int key) {
-    insert(new node(key));
+    insert(new Node(key));
   }
 
   public void display() {
@@ -131,13 +129,13 @@ public class fibHeap {
     System.out.println();
   }
 
-  private void display(node c) {
+  private void display(Node c) {
     System.out.print("(");
     if (c == null) {
       System.out.print(")");
       return;
     } else {
-      node temp = c;
+      Node temp = c;
       do {
         System.out.print(temp.get_key());
         node k = temp.get_child();
@@ -153,8 +151,8 @@ public class fibHeap {
     H3.min = H1.min;
 
     if (H1.min != null && H2.min != null) {
-      node t1 = H1.min.get_left();
-      node t2 = H2.min.get_left();
+      Node t1 = H1.min.get_left();
+      Node t2 = H2.min.get_left();
       H1.min.set_left(t2);
       t1.set_right(H2.min);
       H2.min.set_left(t1);
@@ -169,7 +167,7 @@ public class fibHeap {
     return this.min.get_key();
   }
 
-  private void display_node(node z) {
+  private void display_Node(Node z) {
     System.out.println("right: " + ((z.get_right() == null) ? "-1" : z.get_right().get_key()));
     System.out.println("left: " + ((z.get_left() == null) ? "-1" : z.get_left().get_key()));
     System.out.println("child: " + ((z.get_child() == null) ? "-1" : z.get_child().get_key()));
@@ -179,8 +177,8 @@ public class fibHeap {
   public int extract_min() {
     node z = this.min;
     if (z != null) {
-      node c = z.get_child();
-      node k = c, p;
+      Node c = z.get_child();
+      Node k = c, p;
       if (c != null) {
         do {
           p = c.get_right();
@@ -210,16 +208,16 @@ public class fibHeap {
     node[] A = new node[Dofn + 1];
     for (int i = 0; i <= Dofn; ++i)
       A[i] = null;
-    node w = min;
+    Node w = min;
     if (w != null) {
-      node check = min;
+      Node check = min;
       do {
-        node x = w;
+        Node x = w;
         int d = x.get_degree();
         while (A[d] != null) {
-          node y = A[d];
+          Node y = A[d];
           if (x.get_key() > y.get_key()) {
-            node temp = x;
+            Node temp = x;
             x = y;
             y = temp;
             w = x;
@@ -242,11 +240,11 @@ public class fibHeap {
   }
 
   // Linking operation
-  private void fib_heap_link(node y, node x) {
+  private void fib_heap_link(Node y, Node x) {
     y.get_left().set_right(y.get_right());
     y.get_right().set_left(y.get_left());
 
-    node p = x.get_child();
+    Node p = x.get_child();
     if (p == null) {
       y.set_right(y);
       y.set_left(y);
@@ -267,12 +265,12 @@ public class fibHeap {
     if (found != null || c == null)
       return;
     else {
-      node temp = c;
+      Node temp = c;
       do {
         if (key == temp.get_key())
           found = temp;
         else {
-          node k = temp.get_child();
+          Node k = temp.get_child();
           find(key, k);
           temp = temp.get_right();
         }
@@ -280,19 +278,19 @@ public class fibHeap {
     }
   }
 
-  public node find(int k) {
+  public Node find(int k) {
     found = null;
     find(k, this.min);
     return found;
   }
 
   public void decrease_key(int key, int nval) {
-    node x = find(key);
+    Node x = find(key);
     decrease_key(x, nval);
   }
 
   // Decrease key operation
-  private void decrease_key(node x, int k) {
+  private void decrease_key(Node x, int k) {
     if (k > x.get_key())
       return;
     x.set_key(k);
@@ -306,7 +304,7 @@ public class fibHeap {
   }
 
   // Cut operation
-  private void cut(node x, node y) {
+  private void cut(Node x, Node y) {
     x.get_right().set_left(x.get_left());
     x.get_left().set_right(x.get_right());
 
@@ -320,7 +318,7 @@ public class fibHeap {
   }
 
   private void cascading_cut(node y) {
-    node z = y.get_parent();
+    Node z = y.get_parent();
     if (z != null) {
       if (y.get_mark() == false)
         y.set_mark(true);
@@ -332,7 +330,7 @@ public class fibHeap {
   }
 
   // Delete operations
-  public void delete(node x) {
+  public void delete(Node x) {
     decrease_key(x, Integer.MIN_VALUE);
     int p = extract_min();
   }
