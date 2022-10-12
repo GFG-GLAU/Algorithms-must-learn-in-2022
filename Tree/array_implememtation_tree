@@ -1,0 +1,67 @@
+class tree_array {
+	int root = 0;
+	int arr[];
+	int nn;
+
+	tree_array(int x) {
+		arr = new int[x];
+		nn = x;
+	}
+
+	void root(int y) {
+		arr[root] = y;
+	}
+
+	void set_right(int data, int node) {
+		if (arr[node] == 0) {
+			System.out.println("can't fit data parent position is null");
+			return;
+		}
+		arr[2 * node + 2] = data;
+	}
+
+	void set_left(int data, int node) {
+		if (arr[node] == 0) {
+			System.out.println("can't fit data parent position is null");
+			return;
+		}
+		arr[2 * node + 1] = data;
+	}
+
+	int return_left(int node) {
+		return arr[2 * node + 1];
+	}
+
+	int return_right(int node) {
+		return arr[2 * node + 2];
+	}
+
+	int return_parent(int node) {
+		return arr[(int) (node / 2)];
+	}
+
+	void print() {
+		for (int i = 0; i < nn; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+}
+
+public class array_implementation_tree {
+
+	public static void main(String args[]) {
+
+		tree_array tr = new tree_array(5);
+		tr.root(10);
+		tr.set_right(4, 0);
+		tr.set_left(5, 0);
+		tr.set_right(3, 1);
+		tr.set_left(2, 1);
+		tr.print();
+
+	}
+
+}
+
+// if start by 0 then left_child =2*n+1 and right=2*n+2
+// if start by 1 then left_child=2*n and right=2*n+1
