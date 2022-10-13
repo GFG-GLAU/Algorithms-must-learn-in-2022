@@ -1,9 +1,7 @@
 class Solution 
 { 
-    //Function to return max value that can be put in knapsack of capacity W.
     static int knapSack(int W, int wt[], int val[], int n) 
     { 
-         // your code here
          return maxprofit(wt,val,0,W,n,new HashMap<String,Integer>());
     } 
     
