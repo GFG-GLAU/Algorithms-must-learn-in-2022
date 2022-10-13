@@ -1,7 +1,6 @@
-// Java Program to implement BogoSort
 public class BogoSort
 {
-	// Sorts array a[0..n-1] using Bogo sort
+
 	void bogoSort(int[] a)
 	{
 		while (isSorted(a) == false)
