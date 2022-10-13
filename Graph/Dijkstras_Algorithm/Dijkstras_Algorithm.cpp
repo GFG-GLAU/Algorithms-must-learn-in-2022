@@ -1,5 +1,3 @@
-// Dijkstra's Algorithm in C++
-
 #include <iostream>
 #include <vector>
 
@@ -60,7 +58,6 @@ class Edge {
   int distance;
 };
 
-///////////////////
 void DijkstrasTest() {
   Node* a = new Node('a');
   Node* b = new Node('b');
@@ -107,9 +104,6 @@ void Dijkstras() {
     delete adjacentNodes;
   }
 }
-
-// Find the node with the smallest distance,
-// remove it, and return it.
 Node* ExtractSmallest(vector<Node*>& nodes) {
   int size = nodes.size();
   if (size == 0) return NULL;
@@ -147,7 +141,6 @@ vector<Node*>* AdjacentRemainingNodes(Node* node) {
   return adjacentNodes;
 }
 
-// Return distance between two connected nodes
 int Distance(Node* node1, Node* node2) {
   const int size = edges.size();
   for (int i = 0; i < size; ++i) {
@@ -156,10 +149,8 @@ int Distance(Node* node1, Node* node2) {
       return edge->distance;
     }
   }
-  return -1;  // should never happen
+  return -1;  
 }
-
-// Does the 'nodes' vector contain 'node'
 bool Contains(vector<Node*>& nodes, Node* node) {
   const int size = nodes.size();
   for (int i = 0; i < size; ++i) {
@@ -169,8 +160,6 @@ bool Contains(vector<Node*>& nodes, Node* node) {
   }
   return false;
 }
-
-///////////////////
 
 void PrintShortestRouteTo(Node* destination) {
   Node* previous = destination;
@@ -182,8 +171,6 @@ void PrintShortestRouteTo(Node* destination) {
   }
   cout << endl;
 }
-
-// these two not needed
 vector<Edge*>* AdjacentEdges(vector<Edge*>& Edges, Node* node);
 void RemoveEdge(vector<Edge*>& Edges, Edge* edge);
 
