@@ -8,9 +8,9 @@ class LinkedL {
         public Node(String data){
             this.data=data;
             this.next=null;
-
         }
     }
+    
     public void addFirst(String data){
         Node newNode = new Node(data);
         if(head == null){  
@@ -21,11 +21,13 @@ class LinkedL {
         head = newNode;
 
     }
+    
     public void addLast(String data){
         Node newNode = new Node(data);
         if(head == null){    
             head = newNode;
             return;
+            
         }
         Node temp = head;
         while(temp.next != null){
@@ -34,6 +36,7 @@ class LinkedL {
         temp.next = newNode;
 
     }
+    
     public void insertElement(int pos,Node newnode){
 
         Node temp = head;
@@ -43,6 +46,7 @@ class LinkedL {
             newnode.next=temp.next;
             temp.next=newnode;
     }
+    
     public void deleteFirst(){
         if(head==null){
             System.out.println("List is empty");
