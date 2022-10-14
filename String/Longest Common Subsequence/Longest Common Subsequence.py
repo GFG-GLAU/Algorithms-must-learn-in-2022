@@ -7,29 +7,6 @@ Example:"abc", "abg" are subsequences of "abcdefgh".
 
 
 def longest_common_subsequence(x: str, y: str):
-    """
-    Finds the longest common subsequence between two strings. Also returns the
-    The subsequence found
-
-    Parameters
-    ----------
-
-    x: str, one of the strings
-    y: str, the other string
-
-    Returns
-    -------
-    L[m][n]: int, the length of the longest subsequence. Also equal to len(seq)
-    Seq: str, the subsequence found
-
-    >>> longest_common_subsequence("programming", "gaming")
-    (6, 'gaming')
-    >>> longest_common_subsequence("physics", "smartphone")
-    (2, 'ph')
-    >>> longest_common_subsequence("computer", "food")
-    (1, 'o')
-    """
-    # find the length of strings
 
     assert x is not None
     assert y is not None
@@ -37,7 +14,6 @@ def longest_common_subsequence(x: str, y: str):
     m = len(x)
     n = len(y)
 
-    # declaring the array for storing the dp values
     L = [[0] * (n + 1) for _ in range(m + 1)]
 
     for i in range(1, m + 1):
