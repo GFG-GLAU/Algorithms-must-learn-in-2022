@@ -4,21 +4,16 @@ class Graph:
 
     def __init__(self, vertices):
 
-        self.M = vertices   # Total number of vertices in the graph
+        self.M = vertices  
 
-        self.graph = []     # Array of edges
+        self.graph = []  
 
-
-
-    # Add edges
 
     def add_edge(self, a, b, c):
 
         self.graph.append([a, b, c])
 
 
-
-    # Print the solution
 
     def print_solution(self, distance):
 
