@@ -1,0 +1,40 @@
+import java.util.*;
+class Node {
+
+    int val;
+    Node left, right;
+
+    Node(int val) {
+        this.val = val;
+        left = null;
+        right = null;
+    }
+}
+public class ZigZagTraversal {
+    public static ArrayList < ArrayList < Integer >> zigzagLevelOrder(Node root) {
+
+        Queue < Node > queue = new LinkedList < Node > ();
+        ArrayList < ArrayList < Integer >> wrapList = new ArrayList < > ();
+
+        if (root == null)
+             return wrapList;
+
+        queue.offer(root);
+        boolean flag = true;
+        
+        while (!queue.isEmpty()) {
+            int levelNum = queue.size();
+            ArrayList < Integer > subList = new ArrayList < Integer > (levelNum);
+            for (int i = 0; i < levelNum; i++) {
+                int index = i;
+                if (queue.peek().left != null) queue.offer(queue.peek().left);
+                if (queue.peek().right != null) queue.offer(queue.peek().right);
+                if (flag == true) subList.add(queue.poll().val);
+                else subList.add(0, queue.poll().val);
+            }
+            flag = !flag;
+            wrapList.add(subList);
+        }
+        return wrapList;
+    }
+}
