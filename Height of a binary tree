@@ -1,0 +1,11 @@
+// we will calculate the height of left and right subtree and in the end we will add one bcz of root. 
+
+
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1; 
+    }
+}
