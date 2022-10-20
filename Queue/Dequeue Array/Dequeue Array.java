@@ -13,5 +13,4 @@ public class ArrayDequeDemo {
             dq.pollLast();
         }
         //dq.removeFirst();
-
     }
