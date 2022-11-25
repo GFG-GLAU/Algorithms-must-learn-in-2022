@@ -1,0 +1,17 @@
+// we will use two pointers approach in this question , that is fast and slow pointer this method is also called as floyd cycle algorythm.
+// slow will move one pointer ahead and fast will move two pointer ahead.
+
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        if(head==null){
+            return null;
+        }
+        ListNode slow = head,fast=head;
+        while(fast!=null  && fast.next!=null){
+            slow = slow.next;
+            fast = fast.nex t.next;
+        }
+        return slow;
+        
+    }
+}
