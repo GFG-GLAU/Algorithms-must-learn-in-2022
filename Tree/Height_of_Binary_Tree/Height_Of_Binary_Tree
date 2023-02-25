@@ -1,0 +1,22 @@
+class Node{
+    int val;
+    Node right;
+    Node left;
+
+    Node(int val){
+        this.val=val;
+        this.right=null;
+        this.left=null;
+    }
+}
+class Height_Of_Binary_Tree{
+
+    public int maximum_Height(Node root) {
+        if(root == null) return 0; 
+        
+        int leftHeight = maximum_Height(root.left); 
+        int rightHeight = maximum_Height(root.right); 
+        
+        return 1 + Math.max(leftHeight, rightHeight); 
+    }
+}
