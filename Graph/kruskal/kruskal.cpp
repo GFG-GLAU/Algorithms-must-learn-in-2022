@@ -1,4 +1,4 @@
-// BY DSU
+
 #include<bits/stdc++.h>
 using namespace std;
 int par(vector<int>&v,int i)
